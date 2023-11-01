@@ -1,0 +1,61 @@
+html, body{
+    height: 100%; /*o HTML é o elemento-PAI do 'body', logo, ele, ocupando 100% da viewport, então os elementos-FILHOS tbm irão ocupar em 100%, bem como as funções do 'dispay:flex' irão funcionar*/
+}
+
+body {
+    background-color: aqua;
+    margin: 0;
+    padding: 32px;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    /*height: 100%; --> melhor, neste caso, colocá-lo junto ao 'html'*/
+    display: flex;
+    justify-content: center; /*está centralizando na VERTICAL, pq o 'flex-direction: column'*/
+    align-items: center;
+    flex-direction: column;
+}
+
+.list{
+    width: 90%; /*pra não deslocar o layout quando a tela for maior*/
+    max-width: 960px; /*sempre ficará no máximo 3 cards um ao lado do outro*/
+    list-style-type: none;
+    display: flex;
+    flex-wrap: wrap; /*wrap: se for necessário, irá "quebrar" linha*/
+    justify-content: center;
+    gap: 16px; /*distanciamento entre os elementos*/
+}
+
+.list-item{
+    flex-basis: 280px; /*largura q será aplicada nos flex-items (elementos-FILHOS). NÃO é aplicado ao elemento-PAI*/
+    background-color: #ffffff;
+    background-image: url(../img/thumb02.jpg);
+    background-size: 100%; /*vai ocupar 100% na largura do card*/
+    background-repeat: no-repeat; /*pra NÃO duplicar a imagem 2x no mesmo card*/
+    border-radius: 5px;
+    text-align: center;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+}
+
+.list-item__image img{ /*img dentro pra trabalhar com a imagem*/
+    border-radius: 50%;
+    width: 80px;
+    margin-top: 120px; /*pra empurrar TODAS as fotos dos perfis pra baixo e dar uma margem entre a foto de cada perfil e o nome e e-mail*/
+}
+
+.list-item__name{
+    margin: 0; /*remover a margem entre o nome e a foto do perfil*/
+    font-size: 24px;
+    color: #385555;
+}
+
+.list-item__email{
+    font-size: 14px;
+    color: rgba(0, 0, 0, 0.6);
+}
+
+.list-item__action{
+    display: flex; /*flex: pois irá distribuir os elementos dentro dele (ícones deletar e apagar)*/
+    padding: 16px;
+    background-color: #e5e5e5;
+    justify-content: space-evenly; /*justify-content: trabalha com os elementos na HORIZONTAL. 'space-evenly': divide de forma mais EXATA os "flex-items" conforme o espaço q sobra entre os elementos*/
+    gap: 16px; /*pra dar um espaçamento entre os elementos (ícones deletar e apagar)*/
+}
